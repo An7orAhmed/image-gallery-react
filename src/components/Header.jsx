@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { BiSolidImageAdd } from 'react-icons/bi';
 import { MdOutlineCancel } from 'react-icons/md';
+import { AiTwotoneDelete } from 'react-icons/ai';
 import { ImagesContext } from '../pages/Home';
 
 function Header() {
@@ -21,6 +22,12 @@ function Header() {
         </a>
       </div>
       <div className="flex-none gap-3">
+        {
+          setectedImg?.length > 0 && 
+          <div className="flex gap-2 items-center btn btn-outline btn-error">
+            <AiTwotoneDelete className="text-xl"></AiTwotoneDelete>Delete Selected
+          </div>
+        }
         <div className="flex gap-2 items-center btn btn-outline btn-accent">
           <BiSolidImageAdd className="text-xl"></BiSolidImageAdd>Add Image
         </div>
