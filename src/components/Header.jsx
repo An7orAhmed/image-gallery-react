@@ -31,11 +31,13 @@ function Header() {
         {
           setectedImg?.length > 0 && 
           <div onClick={deleteSelected} className="flex gap-2 items-center btn btn-outline btn-error">
-            <AiTwotoneDelete className="text-xl"></AiTwotoneDelete>Delete Selected
+            <AiTwotoneDelete className="text-xl"></AiTwotoneDelete>
+            <span className="hidden md:inline">Delete Selected</span> 
           </div>
         }
         <div onClick={addNewImage} className="flex gap-2 items-center btn btn-outline btn-accent">
-          <BiSolidImageAdd className="text-xl"></BiSolidImageAdd>Add Image
+          <BiSolidImageAdd className="text-xl"></BiSolidImageAdd>
+          <span className="hidden md:inline">Add Image</span> 
         </div>
       </div>
     </div>
