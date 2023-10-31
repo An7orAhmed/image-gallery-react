@@ -6,7 +6,7 @@ function AddImage() {
   const {addNewImage} = useContext(ImagesContext);
 
   return (
-    <div onClick={addNewImage} className="flex flex-col hover:text-accent hover:border-accent items-center justify-center gap-3 border-dashed border-2 rounded-md w-full h-72">
+    <div onClick={addNewImage} className="flex flex-col transition-all duration-500 hover:text-accent hover:border-accent items-center justify-center gap-3 border-dashed border-2 rounded-md w-full h-72">
       <BiSolidImageAdd className="text-2xl"></BiSolidImageAdd>
       <p>Add Image</p>
     </div>
