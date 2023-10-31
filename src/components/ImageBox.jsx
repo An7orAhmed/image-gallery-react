@@ -23,16 +23,20 @@ function ImageBox({ image, isFeatured }) {
   const onSelect = (e) => {
     const state = e.target.checked;
     setSelected(state);
-    if (state) setSelectedImg(prev => [...prev, image]); 
+    if (state) setSelectedImg(prev => [...prev, image]);
     else setSelectedImg(prev => prev.filter(val => val !== image));
   }
 
   const divClass = `
-    relative hover:bg-black border rounded-md ${(isFeatured && "col-span-2 row-span-2")}
+    ${selected ? "bg-white" : "hover:bg-black"}
+    relative border-2 rounded-md 
+    ${(isFeatured && "col-span-2 row-span-2")}
   `;
 
   const imgClass = `
-    rounded-md hover:opacity-50 hover:bg-blend-darken transition-all duration-500 object-cover w-full ${(isFeatured ? "h-full" : "h-72")}
+    ${selected && "scale-75"}
+    rounded-md hover:opacity-50 hover:bg-blend-darken transition-all duration-500 object-cover w-full
+    ${(isFeatured ? "h-full" : "h-72")}
   `;
 
   const checkClass = "absolute top-3 left-3 checkbox checkbox-accent checkbox-lg rounded-full";
