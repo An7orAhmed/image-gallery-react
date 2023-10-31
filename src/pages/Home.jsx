@@ -18,6 +18,7 @@ function Home() {
 
   const shared = {
     images,
+    setImages,
     setectedImg,
     setSelectedImg
   }

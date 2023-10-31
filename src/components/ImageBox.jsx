@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ImagesContext } from '../pages/Home';
 
 ImageBox.propTypes = {
@@ -8,9 +8,13 @@ ImageBox.propTypes = {
 };
 
 function ImageBox({ image, isFeatured }) {
-  const { setSelectedImg } = useContext(ImagesContext);
+  const { setectedImg, setSelectedImg } = useContext(ImagesContext);
   const [hover, setHover] = useState(false);
   const [selected, setSelected] = useState(false);
+
+  useEffect(() => {
+    if(setectedImg.length === 0) setSelected(false);
+  },[setectedImg]);
 
   const onHover = () => {
     setHover(true);

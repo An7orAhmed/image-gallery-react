@@ -5,10 +5,16 @@ import { AiTwotoneDelete } from 'react-icons/ai';
 import { ImagesContext } from '../pages/Home';
 
 function Header() {
-  const { setectedImg } = useContext(ImagesContext);
+  const { setImages, setectedImg, setSelectedImg } = useContext(ImagesContext);
+  const unselect = () => setSelectedImg([]);
+  
+  const deleteSelected = () => {
+    setImages(prev => prev.filter(item => !setectedImg.includes(item)));
+    setSelectedImg([]);
+  };
 
   const counter = <div className="flex gap-2 items-center">
-    <button className="btn btn-outline text-2xl text-red-500"><MdOutlineCancel /></button>
+    <button onClick={unselect} className="btn btn-outline text-2xl text-red-500"><MdOutlineCancel /></button>
     <p>{setectedImg.length} Image Setected</p>
   </div>;
 
@@ -24,7 +30,7 @@ function Header() {
       <div className="flex-none gap-3">
         {
           setectedImg?.length > 0 && 
-          <div className="flex gap-2 items-center btn btn-outline btn-error">
+          <div onClick={deleteSelected} className="flex gap-2 items-center btn btn-outline btn-error">
             <AiTwotoneDelete className="text-xl"></AiTwotoneDelete>Delete Selected
           </div>
         }
