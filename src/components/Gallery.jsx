@@ -1,15 +1,11 @@
-import { useEffect, useState } from "react";
 import ImageBox from "./ImageBox";
 import AddImage from "./AddImage";
+import { useContext } from "react";
+import { ImagesContext } from "../pages/Home";
+
 
 function Gallery() {
-  const [images, setImages] = useState(null);
-
-  useEffect(() => {
-    fetch("/images.json")
-      .then(resp => resp.json())
-      .then(data => setImages(data.images))
-  }, []);
+  const { images } = useContext(ImagesContext);
 
   return (
     <div>
