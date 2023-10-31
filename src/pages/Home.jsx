@@ -24,7 +24,7 @@ function Home() {
   }
   
   return (
-    <div className="bg-slate-100 pb-10">
+    <div className="bg-slate-100 pb-10 min-h-screen">
       <ImagesContext.Provider value={shared}>
         <Header></Header>
         <Gallery></Gallery>
