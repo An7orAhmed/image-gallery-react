@@ -5,7 +5,7 @@ import { AiTwotoneDelete } from 'react-icons/ai';
 import { ImagesContext } from '../pages/Home';
 
 function Header() {
-  const { setImages, setectedImg, setSelectedImg } = useContext(ImagesContext);
+  const { setImages, setectedImg, setSelectedImg, addNewImage } = useContext(ImagesContext);
   const unselect = () => setSelectedImg([]);
   
   const deleteSelected = () => {
@@ -34,7 +34,7 @@ function Header() {
             <AiTwotoneDelete className="text-xl"></AiTwotoneDelete>Delete Selected
           </div>
         }
-        <div className="flex gap-2 items-center btn btn-outline btn-accent">
+        <div onClick={addNewImage} className="flex gap-2 items-center btn btn-outline btn-accent">
           <BiSolidImageAdd className="text-xl"></BiSolidImageAdd>Add Image
         </div>
       </div>

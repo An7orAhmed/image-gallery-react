@@ -16,11 +16,34 @@ function Home() {
       .then(data => setImages(data.images))
   }, []);
 
+  const addNewImage = () => {
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
+
+    fileInput.addEventListener('change', function(event) {
+      const input = event.target;
+
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+          const img = e.target.result;
+          setImages(prev => [...prev, img]);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    });
+    fileInput.click();
+  }
+
   const shared = {
     images,
     setImages,
     setectedImg,
-    setSelectedImg
+    setSelectedImg,
+    addNewImage
   }
   
   return (
